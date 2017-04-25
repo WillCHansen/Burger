@@ -1,0 +1,21 @@
+body{
+	/*background-color: red;*/
+	text-align: center;
+}
+
+#platedDiv{
+	/*background-color: blue;*/
+}
+
+#devouredDiv{
+	/*background-color: green;*/
+}
+
+#formDiv{
+	/*background-color: purple;*/
+}
+
+#burgerPic{
+	height: 20%;
+	width: 20%;
+}
