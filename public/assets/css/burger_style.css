@@ -3,6 +3,15 @@ body{
 	text-align: center;
 }
 
+table {
+	margin: 0 auto;
+}
+
+td{
+	padding-bottom: 10px;
+	padding-right: 5px;
+}
+
 #platedDiv{
 	/*background-color: blue;*/
 }
