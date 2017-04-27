@@ -3,12 +3,14 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<table>
-				<!-- {{{plated}}}each -->
-				<tr>
-					<td>{{cheeseburger}}</td>
-					<td><button type="submit">Eat it!</button></td>
-				</tr>
-				<!-- close each -->
+				{{#each plated}}
+				<form action="/{{this.id}}?_method=PUT" method="POST">
+					<tr>
+						<td>{{this.burger_name}}</td>
+						<td><button type="submit">Eat it!</button></td>
+					</tr>
+				</form>
+				{{/each}}
 			</table>
 		</div>
 	</div>
@@ -18,11 +20,11 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<table>
-				<!-- {{{consumed each}}} -->
+				{{#each devoured}}
 				<tr>
-					<td>{{cheeseburger}}</td>
+					<td>{{this.burger_name}}</td>
 				</tr>
-				<!-- {{{consumed close}}} -->
+				{{/each}}
 			</table>
 		</div>
 	</div>

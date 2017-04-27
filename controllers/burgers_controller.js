@@ -5,18 +5,29 @@ var burger = require("../models/burger.js");
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
   burger.all(function(data) {
-    var hbsObject = {
-      cats: data
+    // console.log(data);
+    var plated = [];
+    var devoured = [];
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].devoured) {
+        devoured.push(data[i]);
+      }
+      else {
+        plated.push(data[i]);
+      }
     };
-    console.log(hbsObject);
+    var hbsObject = {
+      plated: plated,
+      devoured: devoured
+    };
     res.render("index", hbsObject);
   });
 });
 router.post("/", function(req, res) {
   burger.create([
-    "name", "sleepy"
+    "burger_name", "devoured"
   ], [
-    req.body.name, req.body.sleepy
+    req.body.newBurger, 0
   ], function() {
     res.redirect("/");
   });
@@ -25,16 +36,16 @@ router.put("/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   console.log("condition", condition);
   burger.update({
-    sleepy: req.body.sleepy
+    devoured: 1
   }, condition, function() {
     res.redirect("/");
   });
 });
-router.delete("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-  burger.delete(condition, function() {
-    res.redirect("/");
-  });
-});
+// router.delete("/:id", function(req, res) {
+//   var condition = "id = " + req.params.id;
+//   burger.delete(condition, function() {
+//     res.redirect("/");
+//   });
+// });
 // Export routes for server.js to use.
 module.exports = router;
