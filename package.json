@@ -4,6 +4,7 @@
   "description": "A burger eating app to practice my front end and back end knowledge",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
